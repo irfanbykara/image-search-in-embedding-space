@@ -1,0 +1,24 @@
+{% extends "images/main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">  {# Adds margin above the form #}
+
+<form method="post" enctype="multipart/form-data" class="text-center">
+    {% csrf_token %}
+    <div class="mb-3">
+        <input type="file" name="image" class="form-control-file" id="image">
+    </div>
+    <button type="submit" class="btn btn-success btn-lg" >
+        Upload
+    </button>
+</form>
+
+{% if success %}
+    <div class="text-center pt-4">
+        <img src="{{ uploaded_image_url }}" alt="Uploaded Image" class="img-fluid mb-3" style="max-width: 300px;">
+        <p><strong>Caption:</strong> {{ caption }}</p>
+    </div>
+{% endif %}
+</div>
+{% endblock %}
