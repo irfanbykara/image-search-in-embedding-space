@@ -21,8 +21,8 @@ This Django project allows users to:
 ## Setup Instructions
 
 ### 1. Clone the repository
-git clone https://github.com/USERNAME/REPO_NAME.git
-cd REPO_NAME
+git clone [https://github.com/USERNAME/REPO_NAME.git](https://github.com/irfanbykara/image-search-in-embedding-space.git)
+cd image-search-in-embedding
 
 ### 2. Create a virtual environment
 python -m venv tmp_venv
