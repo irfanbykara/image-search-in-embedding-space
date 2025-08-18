@@ -6,4 +6,6 @@ urlpatterns = [
 
     path('upload/', views.upload_image, name="upload"),
     path('search/', views.search, name="search"),
+    path('all_images/', views.all_images, name="all_images"),
+
 ]

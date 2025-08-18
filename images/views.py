@@ -38,3 +38,22 @@ def search(request):
                 for cap, meta in zip(results["documents"][0], results["metadatas"][0])
             ]
     return render(request, "images/search.html", {"results": results})
+
+
+# images/views.py
+from django.shortcuts import render
+from django.core.paginator import Paginator
+from .models import ImageData
+
+def all_images(request):
+    # get all images ordered by newest first
+    images = ImageData.objects.all().order_by("-id")
+
+    # how many per page
+    paginator = Paginator(images, 4)  # show 12 images per page
+
+    # get ?page= query param from request
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "images/all_images.html", {"page_obj": page_obj})
