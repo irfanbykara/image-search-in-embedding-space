@@ -1,6 +1,11 @@
 # Image Search in Embedding Space
 
+
 This Django project allows users to:
+
+
+https://github.com/user-attachments/assets/ce3314d5-f154-4e56-be2b-39aaaa73ce97
+
 
 1. Upload images.
 2. Generate captions for uploaded images using the OpenAI API.
