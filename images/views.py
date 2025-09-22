@@ -91,14 +91,24 @@ from django.core.paginator import Paginator
 from .models import ImageData
 
 def all_images(request):
-    # get all images ordered by newest first
-    images = ImageData.objects.all().order_by("-id")
+    try:
+        # get all images ordered by newest first
+        images = ImageData.objects.all().order_by("-id")
 
-    # how many per page
-    paginator = Paginator(images, 4)  # show 12 images per page
+        # how many per page
+        paginator = Paginator(images, 4)  # show 12 images per page
 
-    # get ?page= query param from request
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+        # get ?page= query param from request
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
 
-    return render(request, "images/all_images.html", {"page_obj": page_obj})
+        return render(request, "images/all_images.html", {"page_obj": page_obj})
+    except Exception as e:
+        print("%"*100)
+        print(f"Error in all_images: {str(e)}")
+        print("%"*100)  
+        import traceback
+        traceback.print_exc()
+        print("%"*100)
+
+        return render(request, "images/all_images.html", {"error": str(e)})
