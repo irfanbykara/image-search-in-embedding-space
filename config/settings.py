@@ -42,7 +42,7 @@ if allowed_hosts_env:
 
 
 # Application definition
-
+print("HEYYA")
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
