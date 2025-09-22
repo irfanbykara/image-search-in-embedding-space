@@ -60,9 +60,14 @@ def upload_image(request):
                 {"success": True, "caption": caption, "uploaded_image_url": img_obj.image.url},
             )
         except Exception as e:
+            print("*"*100)
             print(f"Error in upload_image: {str(e)}")
+            print("*"*100)
+
             import traceback
             traceback.print_exc()
+            print("*"*100)
+
             return render(request, "images/upload.html", {"error": str(e)})
 
     return render(request, "images/upload.html")
