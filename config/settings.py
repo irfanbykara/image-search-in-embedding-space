@@ -32,10 +32,10 @@ SECRET_KEY = 'django-insecure-5nr5y&3hl_&ujsx2_l0e(%kkkp(!p6@_(-(a+6i_q3w#lpkbns
 DEBUG = True
 
 # Change this line:
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['16.170.237.37']
 
 # To this:
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+#ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
