@@ -34,7 +34,7 @@ def get_caption_from_image(image_path):
 
     return response.choices[0].message.content.strip()
 
-print("*"*100)
+print("*"*50)
 def embed_text(text):
     resp = openai.embeddings.create(
         model="text-embedding-3-small",
