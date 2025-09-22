@@ -40,10 +40,6 @@ if allowed_hosts_env:
     # Split by comma and strip whitespace, then extend the list
     ALLOWED_HOSTS.extend([host.strip() for host in allowed_hosts_env.split(',')])
 
-ALLOWED_HOSTS = ['*']
-
-# To this:
-ALLOWED_HOSTS.append(os.getenv("ALLOWED_HOSTS"))
 
 # Application definition
 
