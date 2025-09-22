@@ -35,7 +35,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # To this:
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 
 # Application definition
 
