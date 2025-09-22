@@ -28,8 +28,17 @@ load_dotenv(BASE_DIR / ".env")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-5nr5y&3hl_&ujsx2_l0e(%kkkp(!p6@_(-(a+6i_q3w#lpkbns'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() == "true"
+
+ALLOWED_HOSTS = ['*']
+
+# Properly handle ALLOWED_HOSTS from environment
+allowed_hosts_env = os.getenv("ALLOWED_HOSTS")
+if allowed_hosts_env:
+    # Split by comma and strip whitespace, then extend the list
+    ALLOWED_HOSTS.extend([host.strip() for host in allowed_hosts_env.split(',')])
 
 ALLOWED_HOSTS = ['*']
 
