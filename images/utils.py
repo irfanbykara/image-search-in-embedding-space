@@ -4,7 +4,8 @@ import base64
 import openai
 import os
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+# Clean the API key by stripping whitespace and newlines
+openai.api_key = os.environ.get("OPENAI_API_KEY", "").strip()
 
 def get_caption_from_image(image_path):
     # Read and encode image
