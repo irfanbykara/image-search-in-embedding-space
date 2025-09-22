@@ -31,11 +31,8 @@ SECRET_KEY = 'django-insecure-5nr5y&3hl_&ujsx2_l0e(%kkkp(!p6@_(-(a+6i_q3w#lpkbns
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Change this line:
-ALLOWED_HOSTS = ['16.170.237.37']
+ALLOWED_HOSTS = ['*']
 
-# To this:
-#ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
@@ -86,11 +83,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB" ),   # or the DB you set
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST"),
-        "PORT": os.getenv("POSTGRES_PORT"),
+        "NAME": os.getenv("POSTGRES_DB", "postgres"),   # or the DB you set
+        "USER": os.getenv("POSTGRES_USER", "myuser"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "mypassword123"),
+        "HOST": os.getenv("POSTGRES_HOST", "my-django-db.cvgs0qmwuif4.eu-north-1.rds.amazonaws.com"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 
